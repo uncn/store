@@ -9,14 +9,14 @@ import java.util.Map;
 
 public class StoreHelper {
 
-    public static String getString(Context context, String name, String group, String key) {
+    public static String getString(Context context, String name, String group, String key, String value) {
         if (context != null && !TextUtils.isEmpty(group) && !TextUtils.isEmpty(key)) {
             String fileName = context.getPackageName() + "." + name;
             String groupKey = context.getPackageName() + "." + group + "." + key;
             SharedPreferences preferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
-            return preferences.getString(groupKey, Value.EMPTY);
+            return preferences.getString(groupKey, value);
         } else {
-            return Value.EMPTY;
+            return value;
         }
     }
 
