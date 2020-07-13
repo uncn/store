@@ -8,4 +8,6 @@ public class Value {
 
     public static final int INVALID = -1;
 
+    public static final boolean TRUE = true;
+
 }
