@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
         StoreHelper.setValues(this, "0", "123", new StoreListener() {
             @Override
             public void onEditor(StoreEditor editor) {
-                editor.setString("", "");
-                editor.setLong("", 0);
+                editor.setString("key1", "value1");
+                editor.setLong("key2", 0);
             }
         });
     }

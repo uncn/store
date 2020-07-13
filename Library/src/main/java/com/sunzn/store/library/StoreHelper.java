@@ -150,4 +150,12 @@ public class StoreHelper {
         }
     }
 
+    public static void clear(Context context, String name) {
+        if (context != null && !TextUtils.isEmpty(name)) {
+            String fileName = context.getPackageName() + "." + name;
+            SharedPreferences preferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
+            preferences.edit().clear().apply();
+        }
+    }
+
 }
