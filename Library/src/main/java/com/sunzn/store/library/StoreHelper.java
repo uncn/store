@@ -9,6 +9,17 @@ import java.util.Map;
 
 public class StoreHelper {
 
+    public static void setValues(Context context, String name, String group, StoreListener listener) {
+        if (context != null && !TextUtils.isEmpty(group) && listener != null) {
+            String fileName = context.getPackageName() + "." + name;
+            SharedPreferences preferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            StoreEditor storeEditor = new StoreEditor(context, group, editor);
+            listener.onEditor(storeEditor);
+            editor.apply();
+        }
+    }
+
     public static String getString(Context context, String name, String group, String key, String value) {
         if (context != null && !TextUtils.isEmpty(group) && !TextUtils.isEmpty(key)) {
             String fileName = context.getPackageName() + "." + name;
